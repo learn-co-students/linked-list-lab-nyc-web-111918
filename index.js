@@ -47,11 +47,8 @@ function insertNodeAt(index, address, linkedList, collection) {
 }
 
 function deleteNodeAt(index, linkedList, collection) {
-  let currNode = headNode(linkedList, collection)
-  let prevNode
-  for (let i = 0; i < index; i++) {
-    prevNode = currNode
-    currNode = next(currNode, collection)
-  }
-  prevNode.next = currNode.next
+  let foundNode = nodeAt(index - 1, linkedList, collection)
+  let prevNode = foundNode
+  foundNode = next(foundNode, collection)
+  prevNode.next = foundNode.next
 }
